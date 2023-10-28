@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rock_paper_scissors</title>
+  <style>
+    #rock{
+      width: 80px;
+      height: 100px;
+      border: 3px solid white;
+      border-radius: 50%;
+      font-size: 50px;
+      margin-left: 40px;
+    }
+    #paper{
+      width: 80px;
+      height: 100px;
+      border: 3px solid white;
+      border-radius: 50%;
+      font-size: 50px;
+    }
+    #scissors{
+      width: 80px;
+      height: 100px;
+      border: 3px solid white;
+      border-radius: 50%;
+      font-size: 50px;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      
+    }
+    h2{
+      color: gold;
+      text-align: center;
+    }
+    #result1{
+      color: gold;
+      margin-top: 40px;
+      font-size: 30px;
+      text-align: center;
+    }
+    #result2{
+      color: gold;
+      text-align: center;
+    }
+    #result3{
+      color: gold;
+      text-align: center;
+    }
+    .main{
+      height: 500px;
+      width: 400px;
+      border: 4px double gold;
+      background-color: black;
+     
+    }
+
+    
+  </style>
+</head>
+<body>
+  <div class="main">
+    <h2>Rock Paper Scissors game</h2>
+    <button id="rock" onclick="start(1)">✊</button>
+    <button id="paper" onclick="start(2)">🖐</button>
+    <button id="scissors" onclick="start(3)">✌️</button>
+    <div id="result1"></div>
+    <div id="result2"></div>
+    <div id="result3"></div>
+  </div>
+  <script>
+    let win=0;
+    let loss=0;
+    let tie=0;
+    
+    let result='';
+    function start(user) {
+      let comp = Math.floor(Math.random()*3);
+      
+      if (user==1){
+        if(comp==0){
+          result='tie';
+          tie+=1;
+          document.getElementById('result1').innerHTML= "you✊  ✊computer";
+        }
+        else if(comp==1){
+          result='loss';
+          loss+=1;
+          document.getElementById('result1').innerHTML= "you✊  🖐computer";
+        }
+        else{
+          result='win';
+          win+=1;
+          document.getElementById('result1').innerHTML= "you✊  ✌️computer";
+        }
+      }
+      else if(user==2){
+        if(comp==0){
+          result='win';
+          win+=1;
+          document.getElementById('result1').innerHTML= "you🖐 ✊computer";
+        }
+        else if(comp==1){
+          result='tie';
+          tie+=1;
+          document.getElementById('result1').innerHTML= "you🖐  🖐computer";
+        }
+        else{
+          result='loss';
+          loss+=1;
+          document.getElementById('result1').innerHTML= "you🖐  ✌️computer";
+        }
+      }
+      else{
+        if(comp==0){
+          result='loss';
+          loss+=1;
+          document.getElementById('result1').innerHTML= "you✌️ ✊computer";
+        }
+        else if(comp==1){
+          result='win';
+          win+=1;
+          document.getElementById('result1').innerHTML= "you✌️  🖐computer";
+        }
+        else{
+          result='tie';
+          tie+=1;
+          document.getElementById('result1').innerHTML= "you✌️  ✌️computer";
+        }
+      }
+      document.getElementById("result2").innerHTML='you :' + result;
+      document.getElementById("result3").innerHTML=' wins :'+ win +' , losses :'+ loss +' , ties :' + tie;
+    }
+    document.getElementById("result2").innerHTML='you' + result;
+    document.getElementById("result3").innerHTML=' wins :'+ win +' , losses :'+ loss +' , ties :' + tie;
+  </script>
+</body>
+</html>
